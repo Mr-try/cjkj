@@ -3,11 +3,9 @@
  */
 $(function(){
     if(typeof localStorage.count=="undefined" || isNaN(localStorage.count)){
-        console.log(localStorage.count);
         localStorage.count=Number(60);
     }
     else {
-        console.log(localStorage.count);
         localStorage.count=Number(localStorage.count);
         if(Number(localStorage.count)!=60){
             settime(Number(localStorage.count));
