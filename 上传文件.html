@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <link rel="stylesheet" href="uploadfile/css/bootstrap.min.css">
+  <script type="text/javascript" src="uploadfile/js/jquery.min.js"></script>
+  <script type="text/javascript" src="uploadfile/js/index.js"></script>
+  <style>
+    .fileUpload {
+      position: relative;
+      overflow: hidden;
+      margin: 10px;
+    }
+    .fileUpload input.upload {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: 0;
+      padding: 0;
+      font-size: 20px;
+      cursor: pointer;
+      opacity: 0;
+      filter: alpha(opacity=0);
+    }
+  </style>
+</head>
+<body>
+<form id="form1" enctype="multipart/form-data">
+  <div class="fileUpload btn btn-primary">
+    <span>选择文件</span>
+    <input type="file" name="fileToUpload" id="fileToUpload"  class="upload" onchange="fileSelected();"/> 
+  </div>
+  <span id="fileName"></span>
+  <div class="fileUpload">
+    <input type="button" onclick="uploadFile()" value="上传" />
+  </div>
+  
+  
+  <!--<input id="uploadFile" placeholder="Choose File" disabled="disabled" />-->
+</form>
+<div class="fileUpload" id="progressNumber" style="width: 200px"></div>
+</body>
+</html>

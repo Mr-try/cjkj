@@ -1,0 +1,97 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>jeDate日期控件</title>
+<script type="text/javascript" src="jedate/jedate.js"></script>
+<link type="text/css" rel="stylesheet" href="jedate/skin/jedate.css">
+</head>
+
+<body class="bodys">
+<div style="width:100%; margin-bottom:50px; overflow:hidden;">
+<ul>
+<!--<input type="checkbox" formatval="YYYY-MM-DD" onclick="thatcheckbox(this)">-->
+    <input class="wicon" id="inyear" type="text" placeholder="YYYY" value=""  readonly>
+    <input class="wicon" id="inpstart" type="text" placeholder="开始日期" value=""  readonly>
+    <input class="wicon" id="inpend" type="text" placeholder="结束日期"   readonly></li>
+    <input class="wicon" id="date01" type="text" placeholder="YYYY-MM-DD hh:mm:ss" value=""  readonly>
+    <input class="wicon" id="date02" type="text" placeholder="YYYY-MM-DD hh:mm" value=""  readonly>
+    <input class="wicon" id="date03" type="text" placeholder="YYYY-MM-DD"  readonly>
+    <input class="wicon" id="date04" type="text" placeholder="YYYY-MM"  readonly>
+    <input class="wicon" id="date05" type="text" placeholder="hh:mm:ss"  readonly>
+    <input class="wicon" id="date06" type="text" placeholder="hh:mm"  readonly>
+</ul>
+<div class="discls" style="float:left;margin-right:5px;"></div>
+<div class="discls" style="float:left;margin-right:5px;"></div>
+</div>
+
+<script type="text/javascript">
+    jeDate({
+        dateCell: '#inyear',
+        isClear:true,
+        fixed:false,
+        minDate:'2013-06-30 23:59:59',
+        maxDate:'2017-06-16 23:59:59',
+        format: 'YYYY'
+    });
+    var start = {
+        dateCell: '#inpstart',
+        format: 'YYYY-MM-DD hh:mm:ss',
+        minDate: jeDate.now(0), //设定最小日期为当前日期
+        isinitVal:true,initAddVal:[1],
+        festival:true,
+        ishmsVal:false,
+        maxDate: '2099-06-30 23:59:59', //最大日期
+        choosefun: function(elem,datas){
+            //console.log(datas)
+            end.minDate = datas; //开始日选好后，重置结束日的最小日期
+        }
+    };
+    var end = {
+        dateCell: '#inpend',
+        format: 'YYYY年MM月DD日 hh:mm:ss',
+        minDate: jeDate.now(0), //设定最小日期为当前日期
+        festival:true,
+        maxDate: '2099-06-16 23:59:59', //最大日期
+        choosefun: function(elem,datas){
+            //console.log(end.minDate)
+            start.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+        }
+    };
+    jeDate(start);
+    jeDate(end);
+
+
+    jeDate({
+        dateCell: '#date01',
+        isClear:true,
+        format: 'YYYY年MM月DD日 hh:mm:ss'
+    });
+    jeDate({
+        dateCell: '#date02',
+        isinitVal:true,
+        format: 'YYYY-MM-DD hh:mm'
+    });
+    jeDate({
+        dateCell: '#date03',
+        format: 'YYYY-MM-DD'
+    });
+    jeDate({
+        dateCell: '#date04',
+        format: 'YYYY-MM'
+    });
+    jeDate({
+        dateCell: '#date05',
+        isinitVal:true,
+        format: 'hh:mm:ss'
+    });
+    jeDate({
+        dateCell: '#date06',
+        format: 'hh:mm'
+    });
+
+</script>
+
+</body>
+</html>

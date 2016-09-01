@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="demos/css/bootstrap.min.css">
+  <link rel="stylesheet" href="demos/css/tab.css">
+  <script type="text/javascript" src="demos/js/jquery.min.js"></script>
+  <script type="text/javascript" src="demos/js/tab.js"></script>
+</head>
+<body>
+<div id="demoTab" class="tab">
+  <ul class="resp-tabs-list hor_1">
+    <li id="tab1"> 1111</li>
+    <li id="tab2"> 2222 </li>
+    <li id="tab3"> 3333 </li>
+  </ul>
+  <div class="resp-tabs-container hor_1" style="width: 300px">
+    <div class="tab1">  </div>
+    <div class="tab2">  </div>
+    <div class="tab3">  </div>
+  </div>
+</div>
+</body>
+</html>
+<script>
+  $('#demoTab').easyResponsiveTabs({
+    type: 'default', //Types: default, vertical, accordion
+    width: '300px', //auto or any width like 600px
+    fit: false, // 100% fit in a container
+    tabidentify: 'hor_1', // The tab groups identifier
+    activate: function(event) { // Callback function if tab is switched
+      var $tab = $(this);
+//      console.log($tab[0].id);
+//      document.getElementsByClassName($tab[0].id).inner="asdasdasda";
+      var $info = $('#nested-tabInfo');
+      var $name = $('span', $info);
+      $name.text($tab.text());
+      $info.show();
+    }
+  });
+</script>
